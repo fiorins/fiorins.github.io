@@ -2,10 +2,10 @@ import {
   Heading,
   Text,
   Box,
-  Flex,
   Button,
   Kbd,
   useToast,
+  Grid,
 } from "@chakra-ui/react";
 import { MyLink } from "../shared/MyLink";
 import { MySpace } from "../shared/MySpace";
@@ -16,12 +16,39 @@ export const Spaces = () => {
 
   const [, setCopied] = useClipboard("davidefiorini@outlook.com");
 
+  const spaces = [
+    {
+      url: "https://github.com/fiorins",
+      urlIcon: "mingcute:github-fill",
+      name: "github",
+      description: "source code of my projects",
+    },
+    {
+      url: "https://observablehq.com/@fiorins",
+      urlIcon: "simple-icons:observable",
+      name: "observable",
+      description: "with my data visualizations",
+    },
+    {
+      url: "https://www.youtube.com/@fiorins",
+      urlIcon: "mingcute:youtube-fill",
+      name: "youtube",
+      description: "for my drone videos",
+    },
+    {
+      url: "https://dev.to/fiorins",
+      urlIcon: "fa-brands:dev",
+      name: "dev",
+      description: "posts on my dev account",
+    },
+  ];
+
   return (
     <Box textAlign="left">
       <Heading size="md" fontFamily="heading" py="2">
         MY SPACES
       </Heading>
-      {/* todo: map generating? */}
+
       <Text size="md" fontFamily="body" py="2">
         On my projects, [&nbsp;
         <MyLink url={"https://react.dev"} name={"React"} />
@@ -30,29 +57,23 @@ export const Spaces = () => {
         ,&nbsp;
         <MyLink url={"https://www.python.org"} name={"Python"} />
         &nbsp;] are the programming languages and frameworks I mainly work with.
-        You can find me on various platforms where I post my works and other
-        stuff.
+        I share my projects code and other stuff on various platforms.
       </Text>
-      <Flex gap="8" py="2" px="4">
-        <MySpace
-          url={"https://github.com/fiorins"}
-          urlIcon={"mingcute:github-fill"}
-          name={"github"}
-          description={"where I share the source code of my projects"}
-        />
-        <MySpace
-          url={"https://observablehq.com/@fiorins"}
-          urlIcon={"simple-icons:observable"}
-          name={"observable"}
-          description={"where I post some cool data visualizations"}
-        />
-        <MySpace
-          url={"https://www.youtube.com/@fiorins"}
-          urlIcon={"mingcute:youtube-fill"}
-          name={"youtube"}
-          description={"on which I upload videos of my drone flights"}
-        />
-      </Flex>
+
+      <Grid templateColumns="repeat(3, 1fr)" gap={6} py={2}>
+        {spaces.map((space, index) => {
+          return (
+            <MySpace
+              key={index}
+              url={space.url}
+              urlIcon={space.urlIcon}
+              name={space.name}
+              description={space.description}
+            />
+          );
+        })}
+      </Grid>
+
       <Text size="md" fontFamily="body" py="2">
         My inbox is always open. Click&nbsp;
         <Button

@@ -9,6 +9,7 @@ import {
 import Typewriter from "typewriter-effect";
 import "../styles/WelcomeCard.css";
 import profile_pic from "../../assets/profile_picture1.jpg";
+// import profile_pic from "../../assets/profile_picture2.png";
 
 export const WelcomeCard = () => {
   return (

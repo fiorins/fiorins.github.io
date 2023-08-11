@@ -3,50 +3,51 @@ import {
   Card,
   CardHeader,
   CardBody,
-  HStack,
+  Heading,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
+
+interface SpaceProps {
+  url?: string;
+  urlIcon?: string;
+  name?: string;
+  description?: string;
+}
 
 export const MySpace = ({
   url = "",
   urlIcon = "",
   name = "",
   description = "",
-}: any) => {
+}: SpaceProps) => {
   return (
     <Link
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      textDecoration="none"
-      _hover={{
-        textDecoration: "none",
-      }}
       flex="1" //it allows to have same size on every card
     >
       <Card
         bg="teal.500"
-        transition="all 0.3s"
-        transition-timing-function="spring(1 100 10 10)"
-        _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
+        direction={{ base: "column", sm: "row" }}
+        key="outline"
+        variant="outline"
+        align="center"
+        _hover={{ bg: "teal", transition: "background-color 0.3s ease" }}
         minHeight="100%"
       >
-        <CardHeader px={6} pt={4} pb={1}>
-          <HStack>
-            <Icon
-              icon={urlIcon}
-              color={useColorModeValue("black", "white")}
-              height="30"
-            />
-            <Text as="span" fontFamily="heading" fontWeight={"bold"}>
-              {name}
-            </Text>
-          </HStack>
+        <CardHeader p={3}>
+          <Icon
+            icon={urlIcon}
+            color={useColorModeValue("black", "white")}
+            height="30"
+          />
         </CardHeader>
-        <CardBody px={6} pt={1} pb={4}>
-          <Text fontFamily="body">{description}</Text>
+        <CardBody py={2} px={0}>
+          <Heading size="md">{name}</Heading>{" "}
+          <Text fontSize="sm">{description}</Text>
         </CardBody>
       </Card>
     </Link>

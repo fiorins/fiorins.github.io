@@ -1,6 +1,12 @@
 import { Link, Card, CardHeader, Heading, Box } from "@chakra-ui/react";
 
-export const MyNote = ({ url = "", icon = "", title = "" }: any) => {
+interface NoteProps {
+  url?: string;
+  icon?: string;
+  title?: string;
+}
+
+export const MyNote = ({ url = "", icon = "", title = "" }: NoteProps) => {
   return (
     <Link
       href={url}

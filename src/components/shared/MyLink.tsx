@@ -1,6 +1,11 @@
 import { Link, Text } from "@chakra-ui/react";
 
-export const MyLink = ({ url = "", name = "" }: any) => {
+interface LinkProps {
+  url?: string;
+  name?: string;
+}
+
+export const MyLink = ({ url = "", name = "" }: LinkProps) => {
   return (
     <Link
       href={url}
