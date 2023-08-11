@@ -16,7 +16,7 @@ export const Spaces = () => {
 
   const [, setCopied] = useClipboard("davidefiorini@outlook.com");
 
-  const spaces = [
+  const listSpaces = [
     {
       url: "https://github.com/fiorins",
       urlIcon: "mingcute:github-fill",
@@ -61,7 +61,7 @@ export const Spaces = () => {
       </Text>
 
       <Grid templateColumns="repeat(3, 1fr)" gap={6} py={2}>
-        {spaces.map((space, index) => {
+        {listSpaces.map((space, index) => {
           return (
             <MySpace
               key={index}

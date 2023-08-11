@@ -1,6 +1,14 @@
-import { Heading, HStack, Flex, Spacer, useColorMode } from "@chakra-ui/react";
+import {
+  Heading,
+  HStack,
+  Flex,
+  Spacer,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { VerifiedIcon } from "../components/icons/VerifiedIcon";
 import ColorModeSwitcher from "../components/shared/ColorModeSwitcher";
+import { Tooltip } from "react-tooltip";
 
 export const Header = () => {
   const { toggleColorMode } = useColorMode();
@@ -14,7 +22,22 @@ export const Header = () => {
         <VerifiedIcon h="5vmin" pointerEvents="none" />
       </HStack>
       <Spacer />
-      <ColorModeSwitcher size="sm" onClick={toggleColorMode} />
+      <ColorModeSwitcher
+        size="sm"
+        onClick={toggleColorMode}
+        data-tooltip-id="my-tooltip"
+        data-tooltip-content={useColorModeValue("Nox!", "Lux!")}
+      />
+      <Tooltip
+        id="my-tooltip"
+        place="left"
+        style={{
+          backgroundColor: useColorModeValue("#702963", "#C3B1E1"),
+          color: useColorModeValue("#fff", "#000"),
+          paddingInline: "10px",
+          paddingBlock: "5px",
+        }}
+      />
     </Flex>
   );
 };

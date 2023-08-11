@@ -1,12 +1,18 @@
-import { Link, Card, CardHeader, Heading, Box } from "@chakra-ui/react";
+import { Link, Card, CardHeader, Heading, Box, Flex } from "@chakra-ui/react";
 
 interface NoteProps {
   url?: string;
   icon?: string;
   title?: string;
+  date?: string;
 }
 
-export const MyNote = ({ url = "", icon = "", title = "" }: NoteProps) => {
+export const MyNote = ({
+  url = "",
+  icon = "",
+  title = "",
+  date = "",
+}: NoteProps) => {
   return (
     <Link
       href={url}
@@ -25,10 +31,17 @@ export const MyNote = ({ url = "", icon = "", title = "" }: NoteProps) => {
       >
         <CardHeader>
           <Heading size="md" fontFamily="subHeading3">
-            <Box display="inline" pr="5">
-              {icon}
-            </Box>
-            {title}
+            <Flex justify="space-between" gap="2" p="1">
+              <span>
+                <Box display="inline" pr="5">
+                  {icon}
+                </Box>
+                {title}
+              </span>
+              <Box display="inline" pl="5">
+                {date}
+              </Box>
+            </Flex>
           </Heading>
         </CardHeader>
       </Card>

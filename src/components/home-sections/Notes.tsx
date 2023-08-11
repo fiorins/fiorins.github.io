@@ -2,34 +2,60 @@ import { Heading, Text, Box, Flex } from "@chakra-ui/react";
 import { MyNote } from "../shared/MyNote";
 
 export const Notes = () => {
+  // const listNotes = [
+  //   {
+  //     link: "https://github.com/fiorins",
+  //     icon: "mingcute:github-fill",
+  //     title: "github",
+  //     date: "source code of my projects",
+  //   },
+  //   {
+  //     link: "https://github.com/fiorins",
+  //     icon: "mingcute:github-fill",
+  //     title: "github",
+  //     date: "source code of my projects",
+  //   },
+  // ];
+
   return (
     <Box textAlign="left">
       <Heading size="md" fontFamily="heading" py="2">
         MY NOTES
       </Heading>
       <Text size="md" fontFamily="body" py="2">
-        Here you can find my notes I write about everything
+        Here you can find my notes I write about everything.
       </Text>
       {/* todo: map generating */}
-      {/* farle solo su una linea e alla fine metterci la data di pubblicazione e la bandiera o la sigla con la lingua */}
       <Flex gap="2" py="2" direction="column">
+        {/* {listNotes.map((space, index) => {
+          return (
+            <MyNote
+              key={index}
+              link={space.url}
+              icon={space.urlIcon}
+              title={space.name}
+              date={space.description}
+            />
+          );
+        })} */}
         <MyNote
           icon={"🔥"}
           title={
             "I'm Dave The perfect latte's from Rome, beverage of Italian origin made"
           }
+          date={"2023"}
         />
         <MyNote
           icon={"💧"}
-          title={
-            "I'm Dave The perfect latte's from Rome, beverage of Italian origin made"
-          }
+          title={"Lorem ipsum dolor sit me amen"}
+          date={"2023-07"}
         />
         <MyNote
           icon={"🍀"}
           title={
-            "I'm Dave The perfect latte's from Rome, beverage of Italian origin made"
+            "Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura"
           }
+          date={"2023-07-15"}
         />
       </Flex>
     </Box>
