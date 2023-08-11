@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <WelcomeCard />
       <Spaces />
-      <Notes />
+      {/* <Notes /> */}
     </>
   );
 }

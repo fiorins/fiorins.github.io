@@ -41,12 +41,9 @@ function App() {
           <BeatLoader color="#899499" size={20} />
         </Flex>
       ) : (
-        <>
-          {/* <Fonts /> */}
-          <Box fontSize="xl">
-            <RouterProvider router={router} />
-          </Box>
-        </>
+        <Box fontSize="xl">
+          <RouterProvider router={router} />
+        </Box>
       )}
     </ChakraProvider>
   );
