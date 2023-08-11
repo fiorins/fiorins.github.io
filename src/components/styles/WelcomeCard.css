@@ -1,0 +1,30 @@
+.Typewriter {
+  display: inline-block;
+}
+
+/* effetto immagine fluttuante*/
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-5px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+
+#myFace {
+  box-sizing: border-box;
+  /*border: 4px #f3f6fd solid; /* biancoperla */
+  border-radius: 50%;
+  /* overflow: hidden; */
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transform: translatey(0px);
+  animation: float 5s ease-in-out infinite;
+}

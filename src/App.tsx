@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import { ChakraProvider, Box, Flex } from "@chakra-ui/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import theme from "./theme";
+import Root from "./routes/Root";
+import Home from "./routes/Home";
+import BeatLoader from "react-spinners/BeatLoader";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    // errorElement: <ErrorPage />,
+    children: [
+      // { path: "/", element: <Home /> },
+      { index: true, element: <Home /> },
+      // {
+      //   path: "/notes/:noteId",
+      //   element: <Note />,
+      //   errorElement: <ErrorPage />,
+      // },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
+
+  const onLoadEffect = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  useEffect(onLoadEffect, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React + Dave</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ChakraProvider theme={theme}>
+      {isLoading ? (
+        <Flex minHeight="100vh" justifyContent="center" alignItems="center">
+          <BeatLoader color="#899499" size={20} />
+        </Flex>
+      ) : (
+        <>
+          {/* <Fonts /> */}
+          <Box fontSize="xl">
+            <RouterProvider router={router} />
+          </Box>
+        </>
+      )}
+    </ChakraProvider>
+  );
 }
 
-export default App
+export default App;
