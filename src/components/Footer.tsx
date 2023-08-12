@@ -21,7 +21,7 @@ export const Footer = () => {
             ©
           </Heading>
           <Heading fontFamily="mono" size="sm" display="inline">
-            2021-2023
+            2023
           </Heading>
         </Box>
         <Spacer />
