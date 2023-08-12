@@ -40,7 +40,7 @@ export const WelcomeCard = () => {
                 "to play football.",
                 "riding a bike.",
                 "reading comics.",
-                "walking through nature.",
+                "walking into nature.",
               ],
               autoStart: true,
               loop: true,
