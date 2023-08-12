@@ -18,7 +18,7 @@ interface SpaceProps {
   marginRight?: number;
 }
 
-export const MySpace = ({
+export const CardSpace = ({
   url = "",
   urlIcon = "",
   name = "",

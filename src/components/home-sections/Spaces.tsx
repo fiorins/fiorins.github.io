@@ -7,8 +7,8 @@ import {
   useToast,
   Grid,
 } from "@chakra-ui/react";
-import { MyLink } from "../shared/MyLink";
-import { MySpace } from "../shared/MySpace";
+import { CustomLink } from "../shared/CustomLink";
+import { CardSpace } from "../shared/CardSpace";
 import useClipboard from "react-use-clipboard";
 
 export const Spaces = () => {
@@ -51,11 +51,14 @@ export const Spaces = () => {
 
       <Text size="md" fontFamily="body" py="2">
         On my projects, [&nbsp;
-        <MyLink url={"https://react.dev"} name={"React"} />
+        <CustomLink url={"https://react.dev"} name={"React"} />
         ,&nbsp;
-        <MyLink url={"https://www.typescriptlang.org"} name={"Typescript"} />
+        <CustomLink
+          url={"https://www.typescriptlang.org"}
+          name={"Typescript"}
+        />
         ,&nbsp;
-        <MyLink url={"https://www.python.org"} name={"Python"} />
+        <CustomLink url={"https://www.python.org"} name={"Python"} />
         &nbsp;] are the programming languages and frameworks I mainly work with.
         I share my projects code and other stuff on various platforms.
       </Text>
@@ -69,7 +72,7 @@ export const Spaces = () => {
         {listSpaces.map((space, index) => {
           const isEven = index % 2 === 0; // Check if index is even
           return (
-            <MySpace
+            <CardSpace
               key={index}
               url={space.url}
               urlIcon={space.urlIcon}
@@ -100,7 +103,7 @@ export const Spaces = () => {
           <Kbd>here</Kbd>
         </Button>
         &nbsp;to copy my email address and write me whether you have a question
-        or just want to say hi, I'll try my best to get back to you!
+        or just want to say hi!
       </Text>
     </Box>
   );

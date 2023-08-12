@@ -7,11 +7,11 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
-import "../styles/WelcomeCard.css";
+import "../styles/Welcome.css";
 import profile_pic from "../../assets/profile_picture1.jpg";
 // import profile_pic from "../../assets/profile_picture2.png";
 
-export const WelcomeCard = () => {
+export const Welcome = () => {
   return (
     <Card
       direction={{ base: "column", md: "row" }}

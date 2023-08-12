@@ -5,7 +5,7 @@ interface LinkProps {
   name?: string;
 }
 
-export const MyLink = ({ url = "", name = "" }: LinkProps) => {
+export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
   return (
     <Link
       href={url}

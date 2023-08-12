@@ -7,7 +7,7 @@ interface NoteProps {
   date?: string;
 }
 
-export const MyNote = ({
+export const CardNote = ({
   url = "",
   icon = "",
   title = "",

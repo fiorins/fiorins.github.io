@@ -4,7 +4,6 @@ import {
   IconButton,
   IconButtonProps,
 } from "@chakra-ui/react";
-
 import { MoonIcon } from "../icons/MoonIcon";
 import { SunIcon } from "../icons/SunIcon";
 
