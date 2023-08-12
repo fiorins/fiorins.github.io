@@ -32,7 +32,6 @@ export const MySpace = ({
       target="_blank"
       rel="noopener noreferrer"
       flex="1" //it allows to have same size on every card
-      //px={2}
       ml={{ base: marginLeft, md: 0 }}
       mr={{ base: marginRight, md: 0 }}
     >

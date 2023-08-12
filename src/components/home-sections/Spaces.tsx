@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Heading,
   Text,
@@ -7,7 +6,6 @@ import {
   Kbd,
   useToast,
   Grid,
-  Flex,
 } from "@chakra-ui/react";
 import { MyLink } from "../shared/MyLink";
 import { MySpace } from "../shared/MySpace";
@@ -63,13 +61,11 @@ export const Spaces = () => {
       </Text>
 
       <Grid
-        //templateColumns="repeat(3, 1fr)"
         templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
         gap={6}
         py={2}
         //px={4}
       >
-        {/* <Flex gap="8" py="2" px="4"> */}
         {listSpaces.map((space, index) => {
           const isEven = index % 2 === 0; // Check if index is even
           return (
@@ -84,7 +80,6 @@ export const Spaces = () => {
             />
           );
         })}
-        {/* </Flex> */}
       </Grid>
 
       <Text size="md" fontFamily="body" py="2">

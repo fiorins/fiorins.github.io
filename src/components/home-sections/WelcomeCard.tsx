@@ -52,8 +52,6 @@ export const WelcomeCard = () => {
         id="myFace"
         borderRadius="full"
         p="2"
-        //ml="8"
-        //ml={{ base: 0, md: 8 }}
         bg={useColorModeValue("#702963", "#C3B1E1")}
         boxSize="150px"
         src={profile_pic}

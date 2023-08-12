@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   HStack,
   Icon,
-  Flex,
   Stack,
   Heading,
   Spacer,
@@ -17,7 +15,6 @@ export const Footer = () => {
   return (
     <Box alignItems="center" justifyContent="space-between" w="full">
       <Divider borderBottomWidth="6px" variant="dashed" mb="8" />
-      {/* <Flex minWidth="max-content" alignItems="center" gap="2" px="8"> */}
       <Stack direction={["column", "row"]} px={{ base: 2, md: 8 }}>
         <Box>
           <Heading fontFamily="heading" size="sm" display="inline" pr={4}>
@@ -43,7 +40,6 @@ export const Footer = () => {
           </Heading>
         </HStack>
       </Stack>
-      {/* // </Flex> */}
     </Box>
   );
 };
