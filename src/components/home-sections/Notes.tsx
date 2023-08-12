@@ -1,5 +1,5 @@
 import { Heading, Text, Box, Flex } from "@chakra-ui/react";
-import { MyNote } from "../shared/MyNote";
+import { CardNote } from "../shared/CardNote";
 
 export const Notes = () => {
   // const listNotes = [
@@ -29,7 +29,7 @@ export const Notes = () => {
       <Flex gap="2" py="2" direction="column">
         {/* {listNotes.map((space, index) => {
           return (
-            <MyNote
+            <CardNote
               key={index}
               link={space.url}
               icon={space.urlIcon}
@@ -38,19 +38,19 @@ export const Notes = () => {
             />
           );
         })} */}
-        <MyNote
+        <CardNote
           icon={"🔥"}
           title={
             "I'm Dave The perfect latte's from Rome, beverage of Italian origin made"
           }
           date={"2023"}
         />
-        <MyNote
+        <CardNote
           icon={"💧"}
           title={"Lorem ipsum dolor sit me amen"}
           date={"2023-07"}
         />
-        <MyNote
+        <CardNote
           icon={"🍀"}
           title={
             "Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura"
