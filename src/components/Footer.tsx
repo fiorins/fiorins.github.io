@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   HStack,
   Icon,
   Flex,
+  Stack,
   Heading,
   Spacer,
   useColorModeValue,
@@ -13,15 +15,18 @@ import { IoMdHeart } from "react-icons/io";
 
 export const Footer = () => {
   return (
-    <Box>
+    <Box alignItems="center" justifyContent="space-between" w="full">
       <Divider borderBottomWidth="6px" variant="dashed" mb="8" />
-      <Flex minWidth="max-content" alignItems="center" gap="2" px="8">
-        <Heading fontFamily="heading" size="sm">
-          ©
-        </Heading>
-        <Heading fontFamily="mono" size="sm">
-          2021-2023
-        </Heading>
+      {/* <Flex minWidth="max-content" alignItems="center" gap="2" px="8"> */}
+      <Stack direction={["column", "row"]} px={{ base: 2, md: 8 }}>
+        <Box>
+          <Heading fontFamily="heading" size="sm" display="inline" pr={4}>
+            ©
+          </Heading>
+          <Heading fontFamily="mono" size="sm" display="inline">
+            2021-2023
+          </Heading>
+        </Box>
         <Spacer />
         <HStack spacing={2}>
           <Icon as={HiCode} verticalAlign="sub" />
@@ -37,7 +42,8 @@ export const Footer = () => {
             by the undersigned
           </Heading>
         </HStack>
-      </Flex>
+      </Stack>
+      {/* // </Flex> */}
     </Box>
   );
 };

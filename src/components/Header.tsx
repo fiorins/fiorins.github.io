@@ -14,7 +14,7 @@ export const Header = () => {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <Flex minWidth="max-content" alignItems="center" gap="2">
+    <Flex alignItems="center" justifyContent="space-between" w="full">
       <HStack spacing={2}>
         <Heading fontFamily="heading" size="lg">
           @DAVIDEFIORINI
@@ -30,7 +30,7 @@ export const Header = () => {
       />
       <Tooltip
         id="my-tooltip"
-        place="left"
+        place={window.innerWidth < 768 ? "bottom" : "left"}
         style={{
           backgroundColor: useColorModeValue("#702963", "#C3B1E1"),
           color: useColorModeValue("#fff", "#000"),

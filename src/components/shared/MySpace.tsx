@@ -14,6 +14,8 @@ interface SpaceProps {
   urlIcon?: string;
   name?: string;
   description?: string;
+  marginLeft?: number;
+  marginRight?: number;
 }
 
 export const MySpace = ({
@@ -21,6 +23,8 @@ export const MySpace = ({
   urlIcon = "",
   name = "",
   description = "",
+  marginLeft = 0,
+  marginRight = 0,
 }: SpaceProps) => {
   return (
     <Link
@@ -28,10 +32,13 @@ export const MySpace = ({
       target="_blank"
       rel="noopener noreferrer"
       flex="1" //it allows to have same size on every card
+      //px={2}
+      ml={{ base: marginLeft, md: 0 }}
+      mr={{ base: marginRight, md: 0 }}
     >
       <Card
         bg="teal.500"
-        direction={{ base: "column", sm: "row" }}
+        direction="row"
         key="outline"
         variant="outline"
         align="center"

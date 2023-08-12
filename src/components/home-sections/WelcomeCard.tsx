@@ -14,11 +14,12 @@ import profile_pic from "../../assets/profile_picture1.jpg";
 export const WelcomeCard = () => {
   return (
     <Card
-      direction={{ base: "column", sm: "row" }}
+      direction={{ base: "column", md: "row" }}
       alignItems="center"
-      p="8"
+      p={8}
       rounded="2xl"
       bg={useColorModeValue("#C3B1E1", "#702963")}
+      gap={{ base: 8, md: 6 }}
     >
       <Stack spacing="3">
         <Heading size="md" fontFamily="heading">
@@ -51,7 +52,8 @@ export const WelcomeCard = () => {
         id="myFace"
         borderRadius="full"
         p="2"
-        ml="8"
+        //ml="8"
+        //ml={{ base: 0, md: 8 }}
         bg={useColorModeValue("#702963", "#C3B1E1")}
         boxSize="150px"
         src={profile_pic}
