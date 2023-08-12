@@ -19,7 +19,11 @@ export const Header = () => {
         <Heading fontFamily="heading" size="lg">
           @DAVIDEFIORINI
         </Heading>
-        <VerifiedIcon h="5vmin" pointerEvents="none" />
+        <VerifiedIcon
+          //h="5vmin"
+          h={{ base: "7vmin", md: "5vmin" }}
+          pointerEvents="none"
+        />
       </HStack>
       <Spacer />
       <ColorModeSwitcher
@@ -27,6 +31,7 @@ export const Header = () => {
         onClick={toggleColorMode}
         data-tooltip-id="my-tooltip"
         data-tooltip-content={useColorModeValue("Nox!", "Lux!")}
+        //data-tooltip-delay-hide={2000}
       />
       <Tooltip
         id="my-tooltip"
@@ -37,6 +42,7 @@ export const Header = () => {
           paddingInline: "10px",
           paddingBlock: "5px",
         }}
+        closeOnEsc={true}
       />
     </Flex>
   );

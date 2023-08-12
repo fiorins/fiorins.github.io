@@ -41,7 +41,10 @@ function App() {
           <BeatLoader color="#899499" size={20} />
         </Flex>
       ) : (
-        <Box fontSize="xl">
+        <Box
+          //fontSize="xl"
+          fontSize={{ base: "lg", md: "xl" }}
+        >
           <RouterProvider router={router} />
         </Box>
       )}
