@@ -42,7 +42,6 @@ function App() {
         </Flex>
       ) : (
         <Box
-          //fontSize="xl"
           fontSize={{ base: "lg", md: "xl" }}
         >
           <RouterProvider router={router} />

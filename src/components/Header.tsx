@@ -20,7 +20,6 @@ export const Header = () => {
           @DAVIDEFIORINI
         </Heading>
         <VerifiedIcon
-          //h="5vmin"
           h={{ base: "7vmin", md: "5vmin" }}
           pointerEvents="none"
         />
