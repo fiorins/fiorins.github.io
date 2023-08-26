@@ -5,13 +5,13 @@ export default function Error() {
     <HStack alignItems="center" justifyContent="center">
       <VStack
         minH="100vh"
-        w={{ base: "85%", md: "65%" }}
+        w={{ base: "85%", md: "100%" }}
         py={8}
         gap={{ base: 14, md: 12 }}
         spacing={12}
         alignItems="center"
       >
-        <div>Error, note not found</div>
+        <div>error, note not found</div>
       </VStack>
     </HStack>
   );

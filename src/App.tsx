@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
-        path: "/notes/:title", //without "/notes/" it could be in conflit with other github pages
+        path: "/notes", //without "/notes/" it could be in conflit with other github pages
         element: <Note />,
         errorElement: <Error />,
       },
