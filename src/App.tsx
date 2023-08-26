@@ -4,21 +4,23 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import theme from "./theme";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
+import NotFound from "./routes/NotFound";
+import Error from "./routes/Error";
+import Note from "./routes/NoteOld";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    // errorElement: <ErrorPage />,
+    errorElement: <NotFound />,
     children: [
-      // { path: "/", element: <Home /> },
       { index: true, element: <Home /> },
-      // {
-      //   path: "/notes/:noteId",
-      //   element: <Note />,
-      //   errorElement: <ErrorPage />,
-      // },
+      {
+        path: "/notes/:title", //without "/notes/" it could be in conflit with other github pages
+        element: <Note />,
+        errorElement: <Error />,
+      },
     ],
   },
 ]);
@@ -41,9 +43,7 @@ function App() {
           <BeatLoader color="#899499" size={20} />
         </Flex>
       ) : (
-        <Box
-          fontSize={{ base: "lg", md: "xl" }}
-        >
+        <Box fontSize={{ base: "lg", md: "xl" }}>
           <RouterProvider router={router} />
         </Box>
       )}
