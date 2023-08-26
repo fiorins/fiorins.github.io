@@ -70,7 +70,7 @@ export const Spaces = () => {
         //px={4}
       >
         {listSpaces.map((space, index) => {
-          const isEven = index % 2 === 0; // Check if index is even
+          const isEven = index % 2 === 0; // check if index is even
           return (
             <CardSpace
               key={index}

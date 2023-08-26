@@ -5,7 +5,7 @@ export default function Error() {
     <HStack alignItems="center" justifyContent="center">
       <VStack
         minH="100vh"
-        w={{ base: "85%", md: "100%" }}
+        w={{ base: "85%", md: "65%" }}
         py={8}
         gap={{ base: 14, md: 12 }}
         spacing={12}
