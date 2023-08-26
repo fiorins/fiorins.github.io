@@ -17,6 +17,7 @@
     "@fontsource/righteous": "^5.0.8",
     "@fontsource/source-code-pro": "^5.0.8",
     "@mdx-js/react": "^2.3.0",
+    "@mdx-js/rollup": "^2.3.0",
     "framer-motion": "^10.15.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

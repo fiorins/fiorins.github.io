@@ -6,7 +6,7 @@ import Root from "./routes/Root";
 import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
 import Error from "./routes/Error";
-import Note from "./routes/NoteOld";
+import Note from "./routes/Note";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const router = createBrowserRouter([
