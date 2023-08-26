@@ -3,9 +3,8 @@
 // import { useEffect } from "react";
 //import { useParams } from "react-router-dom";
 import { MDXProvider } from "@mdx-js/react";
-//import testNote1 from "../assets/notes/testNote1.mdx";
-//import TestNote1 from "../assets/notes/testNote1.mdx";
-import TestNote3 from "../assets/notes/testNote3.mdx";
+import TestNote1 from "../assets/notes/TestNote1.mdx";
+import TestNote2 from "../assets/notes/TestNote2.mdx";
 import { VStack } from "@chakra-ui/react";
 
 const components = {
@@ -23,11 +22,12 @@ export default function Note() {
       //spacing={12}
       //alignItems="center"
     >
-      {/* xxx */}
+      <div>start xxx start</div>
       {/* <MDXProvider components={components}>
-        <TestNote3 />
+        <TestNote1 />
       </MDXProvider> */}
-      <TestNote3 components={components} />
+      <TestNote1 components={components} />
+      <div>end xxx end</div>
     </VStack>
   );
 }
