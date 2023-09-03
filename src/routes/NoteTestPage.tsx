@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // import { useEffect } from "react";
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MDXProvider } from "@mdx-js/react";
-import TestNote1 from "../assets/notes/TestNote1.mdx";
-import TestNote2 from "../assets/notes/TestNote2.mdx";
+import TestNote from "../assets/notes/test-note-one.mdx";
 import { VStack } from "@chakra-ui/react";
 
 const components = {
@@ -12,7 +11,10 @@ const components = {
   // em: (props: any) => <i {...props} />,
 };
 
-export default function Note() {
+export default function NoteTestPage() {
+  const { title } = useParams<"title">();
+  //const { title } = useParams();
+
   return (
     <VStack
       minH="100vh"
@@ -22,11 +24,12 @@ export default function Note() {
       //spacing={12}
       //alignItems="center"
     >
+      <div>Welcome to {title}</div>
       <div>start xxx start</div>
       {/* <MDXProvider components={components}>
         <TestNote1 />
       </MDXProvider> */}
-      <TestNote1 components={components} />
+      <TestNote components={components} />
       <div>end xxx end</div>
     </VStack>
   );

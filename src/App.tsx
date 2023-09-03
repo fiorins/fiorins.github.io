@@ -1,25 +1,34 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { ChakraProvider, Box, Flex } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import theme from "./theme";
-import Root from "./routes/Root";
-import Home from "./routes/Home";
-import NotFound from "./routes/NotFound";
-import Error from "./routes/Error";
-import Note from "./routes/Note";
+import RootLayout from "./routes/RootLayout";
+import HomePage from "./routes/HomePage";
+import NotFoundPage from "./routes/NotFoundPage";
+import ErrorPage from "./routes/ErrorPage";
+import NotePage from "./routes/NotePage";
+import NoteTestPage from "./routes/NoteTestPage";
 import BeatLoader from "react-spinners/BeatLoader";
+
+import Note1 from "./components/Note1";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
-    errorElement: <NotFound />,
+    element: <RootLayout />,
+    errorElement: <NotFoundPage />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <HomePage /> },
       {
-        path: "/notes", //without "/notes/" it could be in conflit with other github pages
-        element: <Note />,
-        errorElement: <Error />,
+        path: "/note",
+        element: <Note1 />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/notes/:title", //without "/notes/" it could be in conflit with other github pages
+        element: <NotePage />,
+        errorElement: <ErrorPage />,
       },
     ],
   },

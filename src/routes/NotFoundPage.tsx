@@ -1,7 +1,7 @@
 import { VStack, HStack } from "@chakra-ui/react";
 import { Header } from "../components/Header";
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <HStack alignItems="center" justifyContent="center">
       <VStack
