@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["mdx"],
 
     /* Linting */
     "strict": true,
@@ -20,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/components/home-sections/.tsx"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "**/*.mdx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

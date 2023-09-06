@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import PropTypes from "prop-types";
 //import { Heading, /* … */ Table } from "./components/index.js";
+import { MDXProvider } from "@mdx-js/react";
 
 // const components = {
 //   h1: Heading.H1,
@@ -9,18 +10,16 @@ import PropTypes from "prop-types";
 // };
 
 type MDXProps = {
-  //style?: CSSProperties;
+  style?: CSSProperties;
   // Other MDX-related props
 };
 
-export const components = {
+const components = {
   // Define your custom MDX components here
-
-  h1: (props: MDXProps) => (
-    <h1 style={{ color: "blue", ...props.style }} {...props} />
-  ),
+  h1: (props: MDXProps) => <h1 style={{ color: "blue" }} {...props} />,
   // em: (props: any) => <i {...props} />,
   // ...other components
+  //a: Link //do import from chakraui
 };
 
 interface NoteLayoutProps {
@@ -29,10 +28,16 @@ interface NoteLayoutProps {
 
 export default function NoteLayout({ children }: NoteLayoutProps) {
   return (
-    <main>{children}</main>
-    // <MDXProvider components={components}>
-    //   {children}
-    // </MDXProvider>
+    <>
+      {/* <main>{children}</main> */}
+      {/* <h1>{data.mdx.frontmatter.title}</h1> */}
+      <MDXProvider components={components}>
+        {children}
+        <br />
+        <br />
+        <p>This is additional content added by the wrapper.</p>
+      </MDXProvider>
+    </>
   );
 }
 
