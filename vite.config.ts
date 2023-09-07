@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import mdx from "@mdx-js/rollup";
@@ -10,11 +9,8 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 export default defineConfig({
   plugins: [
     mdx({
-      //remarkPlugins: [remarkFrontmatter],
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-      //remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, {name: 'matter'}]]
     }),
-    //mdx(),
     react(),
   ],
   base: "/",
