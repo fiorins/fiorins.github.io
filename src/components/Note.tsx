@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { MDXProvider } from "@mdx-js/react";
+import React, { CSSProperties, useState, useEffect } from "react";
+import TestNote, { frontmatter } from "../assets/notes/test-note.mdx";
+import * as TestNoteX from "../assets/notes/test-note-x.mdx";
+import testNoteY from "../assets/notes/test-note-y.mdx";
+import TestNote1 from "../assets/notes/test-note-1.mdx";
+import TestNote2 from "../assets/notes/test-note-2.mdx";
+import NoteLayout from "./NoteLayout";
 
-const Note = ({ mdxContent }: any) => {
+export default function Note() {
   return (
-    <MDXProvider>
-      <div>{mdxContent}</div>
-    </MDXProvider>
+    <div>
+      {frontmatter.shortTitle}
+      <br />
+      <br />
+      Note1
+      <br />
+      <NoteLayout Content={TestNote} />
+    </div>
   );
-};
-
-export default Note;
+}

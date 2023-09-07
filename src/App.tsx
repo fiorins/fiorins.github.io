@@ -11,7 +11,7 @@ import NotePage from "./routes/NotePage";
 import NoteTestPage from "./routes/NoteTestPage";
 import BeatLoader from "react-spinners/BeatLoader";
 
-import Note1 from "./components/Note1";
+import Note from "./components/Note";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       {
         path: "/note",
-        element: <Note1 />,
+        element: <Note />,
         errorElement: <ErrorPage />,
       },
       {
