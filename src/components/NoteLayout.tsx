@@ -1,13 +1,14 @@
 import React from "react";
 import { Heading } from "@chakra-ui/react";
 
+// https://www.developerway.com/posts/react-component-as-prop-the-right-way
+
 interface MDXComponentProps {
   style?: React.CSSProperties;
   children?: React.ReactNode; // Define the children prop
 }
 type MDXComponents = Record<string, React.FC<MDXComponentProps>>;
 type NoteComponents = Record<string, MDXComponents>;
-
 interface NoteLayoutProps {
   Content: React.ComponentType<NoteComponents>;
 }

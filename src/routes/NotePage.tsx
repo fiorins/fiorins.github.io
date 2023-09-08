@@ -9,19 +9,15 @@ import { VStack } from "@chakra-ui/react";
 import MDXRenderer from "../components/MdxRenderer";
 import mdxFiles from "../assets/notes/test-note-2.mdx";
 
-// const notes = {
-//   note1: TestNote1,
-//   note2: TestNote2,
-//   // You can add other notes here
-// };
+const notes = {
+  note1: TestNote1,
+  note2: TestNote2,
+  // ...
+  // You can add other notes here
+};
 
 // type slugProp = {
 //   title?: string;
-// };
-
-// const components = {
-//   h1: (props: any) => <h1 style={{ color: "blue" }} {...props} />,
-//   // em: (props: any) => <i {...props} />,
 // };
 
 export default function NotePage() {
@@ -36,12 +32,14 @@ export default function NotePage() {
   // // let NoteComponent = "";
   // // NoteComponent = title ?? notes[title];
 
-    const { title } = useParams();
-    const mdxFile = mdxFiles.find((file) => file.title === title);
+  const { title } = useParams();
+  const mdxNote = BlogPosts[slug];
 
-    if (!mdxFile) {
-      return <div>MDX file not found</div>;
-    }
+  const mdxFile = mdxFiles.find((file) => file.title === title);
+
+  if (!mdxFile) {
+    return <div>MDX file not found</div>;
+  }
 
   return (
     <VStack

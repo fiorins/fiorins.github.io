@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { CSSProperties, useState, useEffect } from "react";
+import React, {
+  CSSProperties,
+  useState,
+  useEffect,
+  Suspense,
+  lazy,
+} from "react";
 import TestNote, { frontmatter } from "../assets/notes/test-note.mdx";
 import * as TestNoteX from "../assets/notes/test-note-x.mdx";
 import testNoteY from "../assets/notes/test-note-y.mdx";
@@ -16,6 +22,9 @@ export default function Note() {
       Note1
       <br />
       <NoteLayout Content={TestNote1} />
+      {/* <Suspense fallback={<div>Loading...XXX</div>}>
+        <NoteLayout Content={TestNote1} />
+      </Suspense> */}
     </div>
   );
 }
