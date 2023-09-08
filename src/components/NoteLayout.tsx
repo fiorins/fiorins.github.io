@@ -14,8 +14,9 @@ interface NoteLayoutProps {
 
 const components: MDXComponents = {
   h1: (props) => <h1 style={{ color: "blue" }} {...props} />,
-  h2: (props) => (
-    <Heading fontFamily="heading" size="sm" display="inline" pl={4}>
+  h2: (props) => <Heading size="xl">{props.children}</Heading>,
+  h3: (props) => (
+    <Heading fontFamily="subHeading1" size="lg">
       {props.children}
     </Heading>
   ),
