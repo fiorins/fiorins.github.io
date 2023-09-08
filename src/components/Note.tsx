@@ -15,7 +15,7 @@ export default function Note() {
       <br />
       Note1
       <br />
-      <NoteLayout Content={TestNote} />
+      <NoteLayout Content={TestNote1} />
     </div>
   );
 }
