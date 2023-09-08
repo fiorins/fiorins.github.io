@@ -3,14 +3,10 @@ import React, { ComponentType, CSSProperties } from "react";
 interface MDXComponentProps {
   style?: CSSProperties;
 }
-// interface MDXComponents {
-//   [key: string]: FC<MDXComponentProps>;
-// }
-//type MDXComponents = Record<string, ComponentType<MDXComponentProps>>;
+
 type MDXComponents = Record<string, React.FC<MDXComponentProps>>;
-interface NoteComponents {
-  [key: string]: MDXComponents;
-}
+type NoteComponents = Record<string, MDXComponents>;
+
 interface NoteLayoutProps {
   Content: ComponentType<NoteComponents>;
 }
