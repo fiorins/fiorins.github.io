@@ -1,28 +1,24 @@
-import React from "react";
+import React, { ComponentType, CSSProperties } from "react";
 
-export interface MDXcomponents {
-  [key: string]: React.FC<MDXprops>;
+interface MDXComponentProps {
+  style?: CSSProperties;
 }
-// export interface MDXcomponents<T = Record<string, React.FC>> {
-//   [key: string]: React.FC<MDXprops> | T[keyof T];
+// interface MDXComponents {
+//   [key: string]: FC<MDXComponentProps>;
 // }
-// export interface MDXcomponents {
-//   h1: React.FC<MDXprops>;
-// }
-interface MDXprops {
-  style?: React.CSSProperties;
+//type MDXComponents = Record<string, ComponentType<MDXComponentProps>>;
+type MDXComponents = Record<string, React.FC<MDXComponentProps>>;
+interface NoteComponents {
+  [key: string]: MDXComponents;
 }
 interface NoteLayoutProps {
-  //Content: React.ComponentType<>;
-  //Content: React.ReactNode;
-  //Content: React.ReactElement;
-  Content: React.ComponentType<{ components: MDXcomponents }>;
+  Content: ComponentType<NoteComponents>;
 }
 
-const components: MDXcomponents = {
-  h1: (props: MDXprops) => <h1 style={{ color: "blue" }} {...props} />,
+const components: MDXComponents = {
+  h1: (props: MDXComponentProps) => <h1 style={{ color: "blue" }} {...props} />,
 };
 
-export default function NoteLayout({ Content }: NoteLayoutProps): React.ReactElement {
+export default function NoteLayout({ Content }: NoteLayoutProps) {
   return <Content components={components} />;
 }
