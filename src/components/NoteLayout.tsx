@@ -1,19 +1,28 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactNode, CSSProperties } from "react";
+import React from "react";
 
-type MDXProps = {
-  style?: CSSProperties;
-};
-const components: Record<string, React.ComponentType<any>> = {
-  h1: (props: MDXProps) => <h1 style={{ color: "blue" }} {...props} />,
-};
-
-interface PageProps {
-  Content: React.ComponentType<any>;
+export interface MDXcomponents {
+  [key: string]: React.FC<MDXprops>;
+}
+// export interface MDXcomponents<T = Record<string, React.FC>> {
+//   [key: string]: React.FC<MDXprops> | T[keyof T];
+// }
+// export interface MDXcomponents {
+//   h1: React.FC<MDXprops>;
+// }
+interface MDXprops {
+  style?: React.CSSProperties;
+}
+interface NoteLayoutProps {
+  //Content: React.ComponentType<>;
+  //Content: React.ReactNode;
+  //Content: React.ReactElement;
+  Content: React.ComponentType<{ components: MDXcomponents }>;
 }
 
-const Page: React.FC<PageProps> = ({ Content }) => {
-  return <Content components={components} />;
+const components: MDXcomponents = {
+  h1: (props: MDXprops) => <h1 style={{ color: "blue" }} {...props} />,
 };
 
-export default Page;
+export default function NoteLayout({ Content }: NoteLayoutProps): React.ReactElement {
+  return <Content components={components} />;
+}

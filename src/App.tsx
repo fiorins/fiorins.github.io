@@ -10,7 +10,6 @@ import ErrorPage from "./routes/ErrorPage";
 import NotePage from "./routes/NotePage";
 import NoteTestPage from "./routes/NoteTestPage";
 import BeatLoader from "react-spinners/BeatLoader";
-
 import Note from "./components/Note";
 
 const router = createBrowserRouter([

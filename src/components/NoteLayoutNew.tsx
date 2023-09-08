@@ -8,7 +8,7 @@ type MDXProps = {
   // Other MDX-related props
 };
 
-const components = {
+const components: Record<string, React.ComponentType<any>> = {
   h1: (props: MDXProps) => <h1 style={{ color: "blue" }} {...props} />,
 };
 
