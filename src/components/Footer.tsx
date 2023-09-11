@@ -7,13 +7,14 @@ import {
   useColorModeValue,
   Divider,
   Box,
+  Flex,
 } from "@chakra-ui/react";
 import { HiCode } from "react-icons/hi";
 import { IoMdHeart } from "react-icons/io";
 
 export const Footer = () => {
   return (
-    <Box alignItems="center" justifyContent="space-between" w="full">
+    <Flex flexDirection="column" w="full">
       <Divider borderBottomWidth="6px" variant="dashed" mb="8" />
       <Stack direction={["column", "row"]} px={{ base: 2, md: 8 }}>
         <Box>
@@ -21,7 +22,7 @@ export const Footer = () => {
             ©
           </Heading>
           <Heading fontFamily="mono" size="sm" display="inline">
-            2023
+            2021-2023
           </Heading>
         </Box>
         <Spacer />
@@ -40,6 +41,6 @@ export const Footer = () => {
           </Heading>
         </HStack>
       </Stack>
-    </Box>
+    </Flex>
   );
 };
