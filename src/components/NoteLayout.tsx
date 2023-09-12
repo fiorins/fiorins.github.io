@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Box } from "@chakra-ui/react";
 
 // https://www.developerway.com/posts/react-component-as-prop-the-right-way
 
@@ -10,6 +11,7 @@ interface MDXComponentProps {
 type MDXComponents = Record<string, React.FC<MDXComponentProps>>;
 type NoteComponents = Record<string, MDXComponents>;
 interface NoteLayoutProps {
+  frontmatter: any;
   Content: React.ComponentType<NoteComponents>;
 }
 
@@ -23,6 +25,14 @@ const components: MDXComponents = {
   ),
 };
 
-export default function NoteLayout({ Content }: NoteLayoutProps) {
-  return <Content components={components} />;
+export default function NoteLayout({ frontmatter, Content }: NoteLayoutProps) {
+  return (
+    <Box px={8}>
+      {frontmatter.shortTitle}
+      <br />
+      NoteLayout
+      <br />
+      <Content components={components} />
+    </Box>
+  );
 }
