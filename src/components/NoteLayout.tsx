@@ -30,8 +30,6 @@ export default function NoteLayout({ frontmatter, Content }: NoteLayoutProps) {
     <Box px={8}>
       {frontmatter.shortTitle}
       <br />
-      NoteLayout
-      <br />
       <Content components={components} />
     </Box>
   );
