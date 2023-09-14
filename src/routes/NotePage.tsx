@@ -3,29 +3,30 @@
 import { useLoaderData } from "react-router-dom";
 import NoteLayout from "../components/NoteLayout";
 import AllNotes from "../assets/notes";
+import { Heading, Box } from "@chakra-ui/react";
 
 export async function loader({ params }: any) {
   const slug: string = params.title;
   const note: any = AllNotes[slug];
-  //const note: any = AllNotes.find((item) => item.frontmatter.slug === slug);
   if (!slug) throw new Response("", { status: 404 });
   return note;
 }
-// export async function loader({ params }: any) {
-//   const slug: string = params.title;
-//   if (slug) {
-//     const note: any = AllNotes.find((item) => item.frontmatter.slug === slug);
-//     return { note };
-//   } else {
-//     throw new Response("", { status: 404 });
-//   }
-// }
+
+const components: any = {
+  h1: (props: any) => <h1 style={{ color: "blue" }} {...props} />,
+  h2: (props: any) => <Heading size="xl">{props.children}</Heading>,
+  h3: (props: any) => (
+    <Heading fontFamily="subHeading1" size="lg">
+      {props.children}
+    </Heading>
+  ),
+};
 
 export default function NotePage() {
   //const { note } = useLoaderData() as { note: any };
   const note: any = useLoaderData();
 
-  const DynamicComponent = note.content;
+  const DynamicNote = note.content;
 
   return (
     <>
@@ -33,7 +34,12 @@ export default function NotePage() {
       <br />
       <br />
       {/* <NoteLayout frontmatter={note.frontmatter} Content={note.content} /> */}
-      {/* <NoteLayout frontmatter={note.frontmatter} Content={DynamicComponent} /> */}
+      <br />
+      <br />
+      {/* <DynamicNote components={components} /> */}
+      <Box px={8}>
+        <DynamicNote components={components} />
+      </Box>
     </>
   );
 }
