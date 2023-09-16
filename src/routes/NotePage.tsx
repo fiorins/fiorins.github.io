@@ -1,21 +1,29 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useLoaderData } from "react-router-dom";
-import NoteLayout from "../components/NoteLayout";
+import {
+  useLoaderData,
+  LoaderFunction,
+  LoaderFunctionArgs,
+} from "react-router-dom";
 import AllNotes from "../assets/notes";
 import { Heading, Box } from "@chakra-ui/react";
+import { Note } from "../types/note";
+import type { MDXComponents } from "mdx/types";
 
-export async function loader({ params }: any) {
-  const slug: string = params.title;
-  const note: any = AllNotes[slug];
-  if (!slug) throw new Response("", { status: 404 });
-  return note;
-}
+export const loader: LoaderFunction = async ({
+  params,
+}: LoaderFunctionArgs) => {
+  const slug: string | undefined = params.title;
+  if (slug) {
+    const note: Note = AllNotes[slug];
+    return note;
+  }
+  if (!slug || !(slug in AllNotes)) throw new Response("", { status: 404 });
+  return null;
+};
 
-const components: any = {
-  h1: (props: any) => <h1 style={{ color: "blue" }} {...props} />,
-  h2: (props: any) => <Heading size="xl">{props.children}</Heading>,
-  h3: (props: any) => (
+const components: MDXComponents = {
+  h1: (props) => <h1 style={{ color: "blue" }} {...props} />,
+  h2: (props) => <Heading size="xl">{props.children}</Heading>,
+  h3: (props) => (
     <Heading fontFamily="subHeading1" size="lg">
       {props.children}
     </Heading>
@@ -23,21 +31,16 @@ const components: any = {
 };
 
 export default function NotePage() {
-  //const { note } = useLoaderData() as { note: any };
-  const note: any = useLoaderData();
+  const note: Note = useLoaderData() as Note;
 
-  const DynamicNote = note.content;
+  const frontmatter = note?.frontmatter;
+  const DynamicNote = note?.content;
 
   return (
     <>
-      {note.frontmatter.shortTitle}
-      <br />
-      <br />
-      {/* <NoteLayout frontmatter={note.frontmatter} Content={note.content} /> */}
-      <br />
-      <br />
-      {/* <DynamicNote components={components} /> */}
       <Box px={8}>
+        {frontmatter.shortTitle}
+        <br />
         <DynamicNote components={components} />
       </Box>
     </>
