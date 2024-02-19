@@ -6,6 +6,7 @@ import TestNoteTwo, { frontmatter as fmTwo } from "./test-note-two.mdx";
 import TestNoteX, { frontmatter as fmx } from "./test-note-x.mdx";
 import TestNoteY, { frontmatter as fmy } from "./test-note-y.mdx";
 import TestNote, { frontmatter as fm } from "./test-note.mdx";
+import PerfectLatte, { frontmatter as fmpl } from "./perfect-latte.mdx";
 import { AllNotesType } from "../../types/note";
 
 const AllNotes: AllNotesType = {
@@ -40,6 +41,14 @@ const AllNotes: AllNotesType = {
   "how-i-built-my-website": {
     frontmatter: fm,
     content: TestNote,
+  },
+  "perfect-latte": {
+    frontmatter: fmpl,
+    content: PerfectLatte,
+  },
+  "notes/perfect-latte": {
+    frontmatter: fmpl,
+    content: PerfectLatte,
   },
 };
 

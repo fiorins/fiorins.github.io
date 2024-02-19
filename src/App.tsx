@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { ChakraProvider, Box, Flex } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -18,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       {
-        path: "/notes/:title", //without "/notes/" it could be in conflit with other github pages
+        path: "/notes/:slug", //without "/notes/" it could be in conflit with other future github pages
         element: <NotePage />,
         loader: notePageLoader,
         errorElement: <ErrorPage />,

@@ -1,21 +1,21 @@
 import { Link, Card, CardHeader, Heading, Box, Flex } from "@chakra-ui/react";
 
 interface NoteProps {
-  url?: string;
   icon?: string;
   title?: string;
   date?: string;
+  slug?: string;
 }
 
 export const CardNote = ({
-  url = "",
   icon = "",
   title = "",
   date = "",
+  slug = "",
 }: NoteProps) => {
   return (
     <Link
-      href={url}
+      href={slug}
       textDecoration="none"
       _hover={{
         textDecoration: "none",

@@ -11,12 +11,13 @@ import type { MDXComponents } from "mdx/types";
 export const loader: LoaderFunction = async ({
   params,
 }: LoaderFunctionArgs) => {
-  const slug: string | undefined = params.title;
-  if (slug) {
-    const note: Note = AllNotes[slug];
+  const params_slug: string | undefined = params.slug;
+  if (params_slug) {
+    const note: Note = AllNotes[params_slug];
     return note;
   }
-  if (!slug || !(slug in AllNotes)) throw new Response("", { status: 404 });
+  if (!params_slug || !(params_slug in AllNotes))
+    throw new Response("", { status: 404 });
   return null;
 };
 
@@ -38,7 +39,7 @@ export default function NotePage() {
 
   return (
     <>
-      <Box px={8}>
+      <Box px={8} bg={"red"}>
         {frontmatter.shortTitle}
         <br />
         <DynamicNote components={components} />
