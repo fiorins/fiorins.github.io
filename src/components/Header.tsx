@@ -36,7 +36,7 @@ export const Header = () => {
         hasArrow
         label={useColorModeValue("Nox!", "Lux!")}
         bg={useColorModeValue(theme.colors.dark, theme.colors.light)}
-        color={useColorModeValue("black", "white")}
+        color={useColorModeValue("white", "black")}
         placement={useBreakpointValue({ base: "bottom", md: "left" })}
       >
         <ColorModeSwitcher size="sm" onClick={toggleColorMode} />
