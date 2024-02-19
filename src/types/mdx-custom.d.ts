@@ -1,6 +1,8 @@
 declare module "*.mdx" {
-  import { Frontmatter } from "my-frontmatter-types";
+  let MDXComponent: (props) => JSX.Element;
+  export default MDXComponent;
 
+  import { Frontmatter } from "my-frontmatter-types";
   export const frontmatter: Frontmatter;
   export const title: string;
 }

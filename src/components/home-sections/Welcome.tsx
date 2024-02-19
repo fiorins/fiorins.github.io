@@ -4,6 +4,7 @@ import {
   Card,
   Stack,
   Image,
+  useTheme,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
@@ -12,13 +13,14 @@ import profile_pic from "../../assets/profile_picture1.jpg";
 // import profile_pic from "../../assets/profile_picture2.png";
 
 export const Welcome = () => {
+  const theme = useTheme();
   return (
     <Card
       direction={{ base: "column", md: "row" }}
       alignItems="center"
       p={8}
       rounded="2xl"
-      bg={useColorModeValue("#C3B1E1", "#702963")}
+      bg={useColorModeValue(theme.colors.light, theme.colors.dark)}
       gap={{ base: 8, md: 6 }}
     >
       <Stack spacing="3">
@@ -26,8 +28,8 @@ export const Welcome = () => {
           HEY THERE! 👋
         </Heading>
         <Text py="2" as="span" fontFamily="mono">
-          I'm Davide, a software developer based in Italy. I've been building
-          and developing stuff on the web for personal and business projects.
+          It's Dave here, a software developer based in Italy. I build stuff on
+          the web for personal and business projects.
           <br />
           I'm always open to new opportunities and challenges. I strongly
           believe in open source culture and outside of programming I love
@@ -52,7 +54,7 @@ export const Welcome = () => {
         id="myFace"
         borderRadius="full"
         p="2"
-        bg={useColorModeValue("#702963", "#C3B1E1")}
+        bg={useColorModeValue(theme.colors.dark, theme.colors.light)}
         boxSize="150px"
         src={profile_pic}
         alt="Davide Fiorini"

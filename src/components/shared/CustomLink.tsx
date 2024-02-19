@@ -1,4 +1,10 @@
-import { Link, Text, Icon } from "@chakra-ui/react";
+import {
+  Link,
+  Text,
+  Icon,
+  useTheme,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { FaExternalLinkSquareAlt } from "react-icons/fa";
 
 interface LinkProps {
@@ -9,6 +15,8 @@ interface LinkProps {
 // todo fix bold on hover
 
 export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
+  const theme = useTheme();
+
   return (
     <Link
       href={url}
@@ -16,7 +24,10 @@ export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
       rel="noopener noreferrer"
       textDecoration="underline"
       textDecorationStyle="wavy"
-      textDecorationColor="pink.500"
+      textDecorationColor={useColorModeValue(
+        theme.colors.dark,
+        theme.colors.light
+      )}
       _hover={{
         textDecoration: "underline",
         textDecorationStyle: "dotted",

@@ -3,6 +3,7 @@ import {
   HStack,
   Flex,
   Spacer,
+  useTheme,
   useColorMode,
   useColorModeValue,
   Tooltip,
@@ -13,6 +14,7 @@ import { VerifiedIcon } from "../components/icons/VerifiedIcon";
 import ColorModeSwitcher from "../components/shared/ColorModeSwitcher";
 
 export const Header = () => {
+  const theme = useTheme();
   const { toggleColorMode } = useColorMode();
 
   return (
@@ -33,8 +35,8 @@ export const Header = () => {
       <Tooltip
         hasArrow
         label={useColorModeValue("Nox!", "Lux!")}
-        bg={useColorModeValue("#702963", "#C3B1E1")}
-        color={useColorModeValue("#fff", "#000")}
+        bg={useColorModeValue(theme.colors.dark, theme.colors.light)}
+        color={useColorModeValue("black", "white")}
         placement={useBreakpointValue({ base: "bottom", md: "left" })}
       >
         <ColorModeSwitcher size="sm" onClick={toggleColorMode} />

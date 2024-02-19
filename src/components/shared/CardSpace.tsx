@@ -38,8 +38,8 @@ export const CardSpace = ({
       <Card
         bg="teal.500"
         direction="row"
-        key="outline"
-        variant="outline"
+        key="elevated"
+        variant="elevated"
         align="center"
         _hover={{ bg: "teal", transition: "background-color 0.3s ease" }}
         minHeight="100%"
@@ -52,7 +52,7 @@ export const CardSpace = ({
           />
         </CardHeader>
         <CardBody py={2} px={0}>
-          <Heading size="md">{name}</Heading>{" "}
+          <Heading size="md">{name}</Heading>
           <Text fontSize="sm">{description}</Text>
         </CardBody>
       </Card>

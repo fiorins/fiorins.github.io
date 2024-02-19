@@ -16,6 +16,10 @@ const theme = extendTheme({
     initialColorMode: "system",
     useSystemColorMode: true,
   },
+  colors: {
+    light: "#C3B1E1",
+    dark: "#702963",
+  },
 });
 
 export default theme;

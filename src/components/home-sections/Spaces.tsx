@@ -7,7 +7,6 @@ import {
   useToast,
   Grid,
 } from "@chakra-ui/react";
-import { CustomLink } from "../shared/CustomLink";
 import { CardSpace } from "../shared/CardSpace";
 import useClipboard from "react-use-clipboard";
 
@@ -50,17 +49,7 @@ export const Spaces = () => {
       </Heading>
 
       <Text size="md" fontFamily="body" py="2">
-        On my projects, [&nbsp;
-        <CustomLink url={"https://react.dev"} name={"React"} />
-        ,&nbsp;
-        <CustomLink
-          url={"https://www.typescriptlang.org"}
-          name={"Typescript"}
-        />
-        ,&nbsp;
-        <CustomLink url={"https://www.python.org"} name={"Python"} />
-        &nbsp;] are the programming languages and frameworks I mainly work with.
-        I share my projects code and other stuff on various platforms.
+        If you are curious, I share my projects code and other stuff on various platforms.
       </Text>
 
       <Grid

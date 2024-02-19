@@ -4,6 +4,7 @@ import {
   Stack,
   Heading,
   Spacer,
+  useTheme,
   useColorModeValue,
   Divider,
   Box,
@@ -13,6 +14,7 @@ import { HiCode } from "react-icons/hi";
 import { IoMdHeart } from "react-icons/io";
 
 export const Footer = () => {
+  const theme = useTheme();
   return (
     <Flex flexDirection="column" w="full">
       <Divider borderBottomWidth="6px" variant="dashed" mb="8" />
@@ -34,7 +36,7 @@ export const Footer = () => {
           <Icon
             as={IoMdHeart}
             verticalAlign="sub"
-            color={useColorModeValue("#C3B1E1", "#702963")}
+            color={useColorModeValue(theme.colors.light, theme.colors.dark)}
           />
           <Heading fontFamily="mono" size="sm">
             by the undersigned
