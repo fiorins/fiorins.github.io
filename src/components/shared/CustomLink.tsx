@@ -1,8 +1,5 @@
 import { Link, Text, Icon } from "@chakra-ui/react";
-import { HiExternalLink, HiOutlineExternalLink } from "react-icons/hi";
-import { FaExternalLinkAlt, FaExternalLinkSquareAlt } from "react-icons/fa";
-import { RiExternalLinkFill, RiExternalLinkLine } from "react-icons/ri";
-import { TbExternalLink } from "react-icons/tb";
+import { FaExternalLinkSquareAlt } from "react-icons/fa";
 
 interface LinkProps {
   url?: string;
