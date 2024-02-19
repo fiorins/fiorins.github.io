@@ -1,9 +1,15 @@
-import { Link, Text } from "@chakra-ui/react";
+import { Link, Text, Icon } from "@chakra-ui/react";
+import { HiExternalLink, HiOutlineExternalLink } from "react-icons/hi";
+import { FaExternalLinkAlt, FaExternalLinkSquareAlt } from "react-icons/fa";
+import { RiExternalLinkFill, RiExternalLinkLine } from "react-icons/ri";
+import { TbExternalLink } from "react-icons/tb";
 
 interface LinkProps {
   url?: string;
   name?: string;
 }
+
+// todo fix bold on hover
 
 export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
   return (
@@ -13,16 +19,18 @@ export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
       rel="noopener noreferrer"
       textDecoration="underline"
       textDecorationStyle="wavy"
-      textDecorationColor="teal.500"
+      textDecorationColor="pink.500"
       _hover={{
         textDecoration: "underline",
         textDecorationStyle: "dotted",
-        textDecorationColor: "orange.500",
+        textDecorationColor: "red.500",
+        fontWeight: "bold",
       }}
+      fontFamily="mono"
+      fontWeight="bold"
     >
-      <Text as="span" fontFamily="mono">
-        {name}
-      </Text>
+      <Text as="span">{name}</Text>
+      <Icon as={FaExternalLinkSquareAlt} verticalAlign="middle" ml={2} />
     </Link>
   );
 };
