@@ -15,6 +15,7 @@ import { IoMdHeart } from "react-icons/io";
 
 export const Footer = () => {
   const theme = useTheme();
+  
   return (
     <Flex flexDirection="column" w="full">
       <Divider borderBottomWidth="6px" variant="dashed" mb="8" />

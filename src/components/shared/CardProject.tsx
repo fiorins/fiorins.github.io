@@ -19,11 +19,10 @@ interface ProjectProps {
 export const CardProject = ({
   url = "",
   name = "",
-  // marginLeft = 0,
-  // marginRight = 0,
   description = "",
 }: ProjectProps) => {
   const theme = useTheme();
+
   return (
     <Card
       bg={useColorModeValue(theme.colors.light, theme.colors.dark)}

@@ -14,6 +14,7 @@ import profile_pic from "../../assets/profile_picture1.jpg";
 
 export const Welcome = () => {
   const theme = useTheme();
+
   return (
     <Card
       direction={{ base: "column", md: "row" }}
