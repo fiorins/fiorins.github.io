@@ -12,8 +12,6 @@ interface LinkProps {
   name?: string;
 }
 
-// todo fix bold on hover
-
 export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
   const theme = useTheme();
 
@@ -34,10 +32,10 @@ export const CustomLink = ({ url = "", name = "" }: LinkProps) => {
         textDecorationColor: "red.500",
         fontWeight: "bold",
       }}
-      fontFamily="mono"
-      fontWeight="bold"
     >
-      <Text as="span">{name}</Text>
+      <Text as="span" fontFamily="mono" fontWeight="bold">
+        {name}
+      </Text>
       <Icon as={FaExternalLinkSquareAlt} verticalAlign="middle" ml={2} />
     </Link>
   );
