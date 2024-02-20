@@ -19,7 +19,7 @@ export const Notes = () => {
       icon: "🍀",
       title: "Mi ritrovai per una selva oscura",
       date: "2023-07-15",
-      slug: "test-note-y",
+      slug: "how-i-built-my-website",
     },
   ];
 

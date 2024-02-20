@@ -1,13 +1,85 @@
 ---
-title: Test Note
+title: Animating the Unanimatable
+date: 2019-05-20
+isPublished: true
+publishedOn: "2016-02-15T14:03:43-0400"
+abstract: An in-depth look at the surprisingly complicated problem of list reordering
+interactive: false
 shortTitle: A shorter title
-date: 1011-01-11
 ---
 
-# Welcome to Note
+Between CSS3 transitions, @keyframe animations, and wonderful new technologies like the upcoming [Web Animations API](https://w3c.github.io/web-animations/), we've never had more control when it comes to building animations on the web.
 
-_italic text_
+![Several list items being reorganized, with animation](/images/legacy/flip-move-demo.gif)
 
-This is the content of Note.
+# Identifying The Problem
 
-# {frontmatter.shortTitle}
+We have a parent `ArticleList` component which takes a list of articles as its props. It maps through them, in order, and renders them.
+
+If that list order changes (examples: and changes position, new data comes in from the server…), React reconciles the two states, and updates the DOM, creating new nodes
+
+**Because the element’s CSS properties haven’t changed, there is no way to use CSS transitions to animate this change.**
+
+# The solution
+
+> **TL:DR — **I made a React module that does this.
+> [Source](https://github.com/joshwcomeau/react-flip-move) | [Demo](http://joshwcomeau.github.io/react-flip-move/examples)
+
+Here’s what our situation might be: We have a list of 3 items, and they were just reversed. We know their original position (left side), and we know where they’re moving to (right side).
+
+![caption=Kindly ignore my lack of artistic ability|alt=Three colored rectangles that have been reordered](/images/legacy/1__2XJ6ZkO1rIdnQeaHyojk__A.png)
+
+```
+blueItem.getBoundingClientRect()
+// {
+//   top: 0,
+//   width: 400
+// }
+```
+
+**getBoundingClientRect** is smart enough to work out the new layout position of an element, taking into account its height, margin, and any other variables that will affect where it is in the viewport.
+
+> Δy = finalTop - initialTop = 132 - 0 = 132
+
+So, we know that the element has moved down 132px. Similarly, we know that the middle item hasn’t moved at all (Δy = 0px), and the last item has moved _up_ by 132px (Δy = -132px).
+
+```css
+.blue-item {
+  transition: top 500ms;
+  top: 0;
+}
+```
+
+This technique was popularized by Google’s Paul Lewis, and he calls it the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/). FLIP is an acronym for **F**irst, **L**ast, **I**nverse, **P**lay.
+
+![Guy doing lots of backflips so athletic](/images/legacy/1__wYXRKNWYMbpvirtKPilg8Q.gif)
+
+- Calculate the **First** position.
+- **Play** the animation
+
+By using the _transform_ suite of CSS properties — translate, etc — and opacity, we aren’t changing the texture of an element. it doesn’t have to be re-painted on every frame; it can be composited around by the GPU.
+
+# The missing piece: React
+
+> **Note**: This post was originally written a long time ago, and the code in this section in particular has not aged well. The lifecycle methods used have been deprecated, and ReactDOM.findDOMNode is heavily discouraged. The ideas in this section are solid, but please don't try and reuse the code provided!
+
+```jsx
+class ArticleList extends Component {
+  componentWillReceiveProps() {
+    this.props.children.forEach((child) => {
+
+      // Store that box in the state, by its key.
+      this.setState({
+        [child.key]: boundingBox,
+      });
+    });
+  }
+}
+```
+
+The very important distinction to make here is that **React’s _render_ method doesn’t immediately paint to the screen.** I’m a little fuzzy on the lower-level details, but the process looks a little something like this:
+
+- _render_ returns a representation of what it would like the DOM to be,
+- React’s [componentDidUpdate](https://facebook.github.io/react/docs/component-specs.html#updating-componentdidupdate) lifecycle method fires,
+
+> This article was originally posted [on Medium](https://medium.com/developers-writing/animating-the-unanimatable-1346a5aab3cd).
