@@ -38,12 +38,10 @@ export default function NotePage() {
   const DynamicNote = note?.content;
 
   return (
-    <>
-      <Box px={8} bg={"red"}>
-        {frontmatter.shortTitle}
-        <br />
-        <DynamicNote components={components} />
-      </Box>
-    </>
+    <Box px={8} bg={"red"}>
+      {frontmatter.shortTitle}
+      <br />
+      <DynamicNote components={components} />
+    </Box>
   );
 }
