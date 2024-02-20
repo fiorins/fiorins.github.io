@@ -12,8 +12,6 @@ interface ProjectProps {
   url?: string;
   name?: string;
   description?: string;
-  // marginLeft?: number;
-  // marginRight?: number;
 }
 
 export const CardProject = ({
