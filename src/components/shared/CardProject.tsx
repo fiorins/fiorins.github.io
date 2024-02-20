@@ -33,7 +33,7 @@ export const CardProject = ({
       mr="0"
     >
       <CardBody p={3}>
-        <Heading size="sm">
+        <Heading size="sm" pb="1">
           <CustomLink url={url} name={name} />
         </Heading>
         <Text fontSize="sm">{description}</Text>

@@ -21,7 +21,7 @@ export const Projects = () => {
   ];
 
   return (
-    <Box textAlign="left">
+    <Box textAlign="left" w="full">
       <Heading size="md" fontFamily="heading" py="2">
         MY PROJECTS
       </Heading>

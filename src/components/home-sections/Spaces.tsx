@@ -43,13 +43,14 @@ export const Spaces = () => {
   ];
 
   return (
-    <Box textAlign="left">
+    <Box textAlign="left" w="full">
       <Heading size="md" fontFamily="heading" py="2">
         MY SPACES
       </Heading>
 
       <Text size="md" fontFamily="body" py="2">
-        If you are curious, I share my projects code and other stuff on various platforms.
+        If you are curious, I share my projects code and other stuff on various
+        platforms.
       </Text>
 
       <Grid
