@@ -8,21 +8,15 @@ export const Projects = () => {
       name: "AlboPop Ladispoli",
       description: "Telegram channel auto updated with new municipal documents",
     },
-    {
-      url: "https://observablehq.com/@fiorins",
-      name: "Ladispoli presences",
-      description: "xxx",
-    },
-    {
-      url: "https://observablehq.com/@fiorins",
-      name: "SpaceX stats",
-      description:
-        "Telegram channel auto updated with new municipal documents xxx",
-    },
     // {
-    //   url: "https://observablehq.com/@fiorins",
-    //   name: "xxx",
-    //   description: "with my data visualizations",
+    //   url: "https://consigliocomunale.vercel.app/",
+    //   name: "Comune Ladispoli stats",
+    //   description: "Web app shows some stats about city council",
+    // },
+    // {
+    //   url: "https://google.com",
+    //   name: "Google stats",
+    //   description: "xxx",
     // },
   ];
 
@@ -49,8 +43,6 @@ export const Projects = () => {
               url={space.url}
               name={space.name}
               description={space.description}
-              // marginLeft={0}
-              // marginRight={0}
             />
           );
         })}

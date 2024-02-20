@@ -5,21 +5,19 @@ export const Notes = () => {
   const listNotes = [
     {
       icon: "🔥",
-      title:
-        "I'm Dave The perfect latte's from Rome, beverage of Italian origin made",
+      title: "Lorem ipsum dolor sit me amen",
       date: "2024",
       slug: "perfect-latte",
     },
     {
       icon: "💧",
-      title: "Lorem ipsum dolor sit me amen",
+      title: "Nel mezzo del cammin di nostra vita",
       date: "2023-07",
       slug: "test-note-1",
     },
     {
       icon: "🍀",
-      title:
-        "Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura",
+      title: "Mi ritrovai per una selva oscura",
       date: "2023-07-15",
       slug: "test-note-y",
     },
@@ -33,7 +31,6 @@ export const Notes = () => {
       <Text size="md" fontFamily="body" py="2">
         Here you can find my notes I write about everything.
       </Text>
-      {/* todo: map generating */}
       <Flex gap="2" py="2" direction="column">
         {listNotes.map((space, index) => {
           return (
