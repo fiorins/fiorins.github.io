@@ -39,7 +39,7 @@ export const Notes = () => {
               icon={space.icon}
               title={space.title}
               date={space.date}
-              slug={"/notes/" + space.slug}
+              slug={"/#/notes/" + space.slug}
             />
           );
         })}

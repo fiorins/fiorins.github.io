@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChakraProvider, Box, Flex } from "@chakra-ui/react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import theme from "./theme";
 import RootLayout from "./routes/RootLayout";
 import HomePage from "./routes/HomePage";
@@ -9,7 +9,7 @@ import ErrorPage from "./routes/ErrorPage";
 import NotePage, { loader as notePageLoader } from "./routes/NotePage";
 import BeatLoader from "react-spinners/BeatLoader";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <RootLayout />,
